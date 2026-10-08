@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma",
+    "editor.formatOnSave": true
+  },
+
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+
+  "prettier.requireConfig": true,
+
+  "prettier.prettierPath": "./node_modules/prettier",
+
+  "cSpell.language": "en,ru,ro"
+}

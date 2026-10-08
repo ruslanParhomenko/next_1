@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+
+  BARMEN
+  WAITERS
+  COOK
+  DISH
+
+  SCR
+
+  CCTV
+  IT
+  CASH
+  TECH
+  DLR
+
+  MGR
+}
+
+model Employee {
+  id String @id @default(cuid())
+
+  mail        String  @unique
+  tel         String
+  fullName    String  @map("full_name")
+  role        Role
+  isActive    Boolean @default(true) @map("is_active")
+  currentRate Decimal @map("current_rate") @db.Decimal(10, 2)
+
+  employmentDate DateTime        @map("employment_date")
+  dismissalDate  DateTime?       @map("dismissal_date")
+  vacation       VacationUsed[]
+  employeeShifts EmployeeShift[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("employees")
+}
+
+model VacationUsed {
+  id String @id @default(cuid())
+
+  employeeId String   @map("employee_id")
+  countDay   Int      @map("count_day")
+  startDate  DateTime @map("start_date")
+  endDate    DateTime @map("end_date")
+
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  createdDate DateTime @map("created_date")
+
+  @@index([employeeId, startDate])
+  @@map("vacation_used")
+}
+
+model Schedule {
+  id    String @id @default(cuid())
+  unit  Role
+  year  Int    @db.SmallInt
+  month Int    @db.SmallInt
+
+  employees ScheduleEmployee[]
+
+  @@unique([unit, year, month])
+  @@map("schedules")
+}
+
+model ScheduleEmployee {
+  id String @id @default(cuid())
+
+  scheduleId String    @map("schedule_id")
+  schedule   Schedule? @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+
+  employeeShiftId String        @map("employee_shift_id")
+  employeeShift   EmployeeShift @relation(fields: [employeeShiftId], references: [id], onDelete: Cascade)
+
+  @@unique([scheduleId, employeeShiftId])
+  @@index([employeeShiftId])
+  @@map("schedule_employee")
+}
+
+model EmployeeShift {
+  id String @id @default(cuid())
+
+  year  Int @db.SmallInt
+  month Int @db.SmallInt
+
+  employeeId String   @map("employee_id")
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Restrict)
+
+  shift             String[]
+  scheduleEmployees ScheduleEmployee[]
+
+  @@unique([employeeId, year, month])
+  @@index([employeeId])
+  @@map("employee_shift")
+}
