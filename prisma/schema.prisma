@@ -9,20 +9,16 @@ datasource db {
 
 enum Role {
   ADMIN
-
   BARMEN
   WAITERS
   COOK
   DISH
-
   SCR
-
   CCTV
   IT
   CASH
   TECH
   DLR
-
   MGR
 }
 
