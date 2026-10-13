@@ -11,11 +11,11 @@ export class EmployeeService {
   }
 
   findAll() {
-    return `This action returns all employee`;
+    return this.prisma.employee.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} employee`;
+  findOne(id: string) {
+    return this.prisma.employee.findUnique({ where: { id } });
   }
 
   update(id: number, updateEmployeeDto: UpdateEmployeeDto) {
