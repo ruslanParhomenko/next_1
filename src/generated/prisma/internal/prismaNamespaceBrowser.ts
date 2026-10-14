@@ -94,10 +94,8 @@ export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typ
 export const VacationUsedScalarFieldEnum = {
   id: 'id',
   employeeId: 'employeeId',
-  countDay: 'countDay',
   startDate: 'startDate',
-  endDate: 'endDate',
-  createdDate: 'createdDate'
+  endDate: 'endDate'
 } as const
 
 export type VacationUsedScalarFieldEnum = (typeof VacationUsedScalarFieldEnum)[keyof typeof VacationUsedScalarFieldEnum]

@@ -7,11 +7,35 @@ import { PrismaService } from '../prisma/prisma.service.js';
 export class EmployeeService {
   constructor(private readonly prisma: PrismaService) {}
   create(createEmployeeDto: CreateEmployeeDto) {
-    return this.prisma.employee.create({ data: createEmployeeDto });
+    const { vacation, ...employeeData } = createEmployeeDto;
+
+    return this.prisma.employee.create({
+      data: {
+        ...employeeData,
+        employmentDate: new Date(createEmployeeDto.employmentDate),
+        dismissalDate:
+          createEmployeeDto.dismissalDate &&
+          new Date(createEmployeeDto.dismissalDate),
+
+        vacation: {
+          create: (vacation ?? []).map((item) => ({
+            startDate: new Date(item.startDate),
+            endDate: new Date(item.endDate),
+          })),
+        },
+      },
+      include: {
+        vacation: true,
+      },
+    });
   }
 
   findAll() {
-    return this.prisma.employee.findMany();
+    return this.prisma.employee.findMany({
+      include: {
+        vacation: true,
+      },
+    });
   }
 
   findOne(id: string) {

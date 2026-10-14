@@ -20,82 +20,52 @@ export type VacationUsedModel = runtime.Types.Result.DefaultSelection<Prisma.$Va
 
 export type AggregateVacationUsed = {
   _count: VacationUsedCountAggregateOutputType | null
-  _avg: VacationUsedAvgAggregateOutputType | null
-  _sum: VacationUsedSumAggregateOutputType | null
   _min: VacationUsedMinAggregateOutputType | null
   _max: VacationUsedMaxAggregateOutputType | null
-}
-
-export type VacationUsedAvgAggregateOutputType = {
-  countDay: number | null
-}
-
-export type VacationUsedSumAggregateOutputType = {
-  countDay: number | null
 }
 
 export type VacationUsedMinAggregateOutputType = {
   id: string | null
   employeeId: string | null
-  countDay: number | null
   startDate: Date | null
   endDate: Date | null
-  createdDate: Date | null
 }
 
 export type VacationUsedMaxAggregateOutputType = {
   id: string | null
   employeeId: string | null
-  countDay: number | null
   startDate: Date | null
   endDate: Date | null
-  createdDate: Date | null
 }
 
 export type VacationUsedCountAggregateOutputType = {
   id: number
   employeeId: number
-  countDay: number
   startDate: number
   endDate: number
-  createdDate: number
   _all: number
 }
 
 
-export type VacationUsedAvgAggregateInputType = {
-  countDay?: true
-}
-
-export type VacationUsedSumAggregateInputType = {
-  countDay?: true
-}
-
 export type VacationUsedMinAggregateInputType = {
   id?: true
   employeeId?: true
-  countDay?: true
   startDate?: true
   endDate?: true
-  createdDate?: true
 }
 
 export type VacationUsedMaxAggregateInputType = {
   id?: true
   employeeId?: true
-  countDay?: true
   startDate?: true
   endDate?: true
-  createdDate?: true
 }
 
 export type VacationUsedCountAggregateInputType = {
   id?: true
   employeeId?: true
-  countDay?: true
   startDate?: true
   endDate?: true
-  createdDate?: true
   _all?: true
 }
 
@@ -137,18 +107,6 @@ export type VacationUsedAggregateArgs<ExtArgs extends runtime.Types.Extensions.I
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: VacationUsedAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: VacationUsedSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: VacationUsedMinAggregateInputType
@@ -179,8 +137,6 @@ export type VacationUsedGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
   take?: number
   skip?: number
   _count?: VacationUsedCountAggregateInputType | true
-  _avg?: VacationUsedAvgAggregateInputType
-  _sum?: VacationUsedSumAggregateInputType
   _min?: VacationUsedMinAggregateInputType
   _max?: VacationUsedMaxAggregateInputType
 }
@@ -188,13 +144,9 @@ export type VacationUsedGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 export type VacationUsedGroupByOutputType = {
   id: string
   employeeId: string
-  countDay: number
   startDate: Date
   endDate: Date
-  createdDate: Date
   _count: VacationUsedCountAggregateOutputType | null
-  _avg: VacationUsedAvgAggregateOutputType | null
-  _sum: VacationUsedSumAggregateOutputType | null
   _min: VacationUsedMinAggregateOutputType | null
   _max: VacationUsedMaxAggregateOutputType | null
 }
@@ -220,20 +172,16 @@ export type VacationUsedWhereInput = {
   NOT?: Prisma.VacationUsedWhereInput | Prisma.VacationUsedWhereInput[]
   id?: Prisma.StringFilter<"VacationUsed"> | string
   employeeId?: Prisma.StringFilter<"VacationUsed"> | string
-  countDay?: Prisma.IntFilter<"VacationUsed"> | number
   startDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
   endDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
-  createdDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
   employee?: Prisma.XOR<Prisma.EmployeeScalarRelationFilter, Prisma.EmployeeWhereInput>
 }
 
 export type VacationUsedOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
-  countDay?: Prisma.SortOrder
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
-  createdDate?: Prisma.SortOrder
   employee?: Prisma.EmployeeOrderByWithRelationInput
 }
 
@@ -243,25 +191,19 @@ export type VacationUsedWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.VacationUsedWhereInput[]
   NOT?: Prisma.VacationUsedWhereInput | Prisma.VacationUsedWhereInput[]
   employeeId?: Prisma.StringFilter<"VacationUsed"> | string
-  countDay?: Prisma.IntFilter<"VacationUsed"> | number
   startDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
   endDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
-  createdDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
   employee?: Prisma.XOR<Prisma.EmployeeScalarRelationFilter, Prisma.EmployeeWhereInput>
 }, "id">
 
 export type VacationUsedOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
-  countDay?: Prisma.SortOrder
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
-  createdDate?: Prisma.SortOrder
   _count?: Prisma.VacationUsedCountOrderByAggregateInput
-  _avg?: Prisma.VacationUsedAvgOrderByAggregateInput
   _max?: Prisma.VacationUsedMaxOrderByAggregateInput
   _min?: Prisma.VacationUsedMinOrderByAggregateInput
-  _sum?: Prisma.VacationUsedSumOrderByAggregateInput
 }
 
 export type VacationUsedScalarWhereWithAggregatesInput = {
@@ -270,72 +212,56 @@ export type VacationUsedScalarWhereWithAggregatesInput = {
   NOT?: Prisma.VacationUsedScalarWhereWithAggregatesInput | Prisma.VacationUsedScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"VacationUsed"> | string
   employeeId?: Prisma.StringWithAggregatesFilter<"VacationUsed"> | string
-  countDay?: Prisma.IntWithAggregatesFilter<"VacationUsed"> | number
   startDate?: Prisma.DateTimeWithAggregatesFilter<"VacationUsed"> | Date | string
   endDate?: Prisma.DateTimeWithAggregatesFilter<"VacationUsed"> | Date | string
-  createdDate?: Prisma.DateTimeWithAggregatesFilter<"VacationUsed"> | Date | string
 }
 
 export type VacationUsedCreateInput = {
   id?: string
-  countDay: number
   startDate: Date | string
   endDate: Date | string
-  createdDate: Date | string
   employee: Prisma.EmployeeCreateNestedOneWithoutVacationInput
 }
 
 export type VacationUsedUncheckedCreateInput = {
   id?: string
   employeeId: string
-  countDay: number
   startDate: Date | string
   endDate: Date | string
-  createdDate: Date | string
 }
 
 export type VacationUsedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   employee?: Prisma.EmployeeUpdateOneRequiredWithoutVacationNestedInput
 }
 
 export type VacationUsedUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   employeeId?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VacationUsedCreateManyInput = {
   id?: string
   employeeId: string
-  countDay: number
   startDate: Date | string
   endDate: Date | string
-  createdDate: Date | string
 }
 
 export type VacationUsedUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VacationUsedUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   employeeId?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VacationUsedListRelationFilter = {
@@ -351,36 +277,22 @@ export type VacationUsedOrderByRelationAggregateInput = {
 export type VacationUsedCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
-  countDay?: Prisma.SortOrder
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
-  createdDate?: Prisma.SortOrder
-}
-
-export type VacationUsedAvgOrderByAggregateInput = {
-  countDay?: Prisma.SortOrder
 }
 
 export type VacationUsedMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
-  countDay?: Prisma.SortOrder
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
-  createdDate?: Prisma.SortOrder
 }
 
 export type VacationUsedMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
-  countDay?: Prisma.SortOrder
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
-  createdDate?: Prisma.SortOrder
-}
-
-export type VacationUsedSumOrderByAggregateInput = {
-  countDay?: Prisma.SortOrder
 }
 
 export type VacationUsedCreateNestedManyWithoutEmployeeInput = {
@@ -425,28 +337,16 @@ export type VacationUsedUncheckedUpdateManyWithoutEmployeeNestedInput = {
   deleteMany?: Prisma.VacationUsedScalarWhereInput | Prisma.VacationUsedScalarWhereInput[]
 }
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
 export type VacationUsedCreateWithoutEmployeeInput = {
   id?: string
-  countDay: number
   startDate: Date | string
   endDate: Date | string
-  createdDate: Date | string
 }
 
 export type VacationUsedUncheckedCreateWithoutEmployeeInput = {
   id?: string
-  countDay: number
   startDate: Date | string
   endDate: Date | string
-  createdDate: Date | string
 }
 
 export type VacationUsedCreateOrConnectWithoutEmployeeInput = {
@@ -481,42 +381,32 @@ export type VacationUsedScalarWhereInput = {
   NOT?: Prisma.VacationUsedScalarWhereInput | Prisma.VacationUsedScalarWhereInput[]
   id?: Prisma.StringFilter<"VacationUsed"> | string
   employeeId?: Prisma.StringFilter<"VacationUsed"> | string
-  countDay?: Prisma.IntFilter<"VacationUsed"> | number
   startDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
   endDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
-  createdDate?: Prisma.DateTimeFilter<"VacationUsed"> | Date | string
 }
 
 export type VacationUsedCreateManyEmployeeInput = {
   id?: string
-  countDay: number
   startDate: Date | string
   endDate: Date | string
-  createdDate: Date | string
 }
 
 export type VacationUsedUpdateWithoutEmployeeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VacationUsedUncheckedUpdateWithoutEmployeeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VacationUsedUncheckedUpdateManyWithoutEmployeeInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  countDay?: Prisma.IntFieldUpdateOperationsInput | number
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  createdDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -524,43 +414,35 @@ export type VacationUsedUncheckedUpdateManyWithoutEmployeeInput = {
 export type VacationUsedSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   employeeId?: boolean
-  countDay?: boolean
   startDate?: boolean
   endDate?: boolean
-  createdDate?: boolean
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["vacationUsed"]>
 
 export type VacationUsedSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   employeeId?: boolean
-  countDay?: boolean
   startDate?: boolean
   endDate?: boolean
-  createdDate?: boolean
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["vacationUsed"]>
 
 export type VacationUsedSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   employeeId?: boolean
-  countDay?: boolean
   startDate?: boolean
   endDate?: boolean
-  createdDate?: boolean
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["vacationUsed"]>
 
 export type VacationUsedSelectScalar = {
   id?: boolean
   employeeId?: boolean
-  countDay?: boolean
   startDate?: boolean
   endDate?: boolean
-  createdDate?: boolean
 }
 
-export type VacationUsedOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "employeeId" | "countDay" | "startDate" | "endDate" | "createdDate", ExtArgs["result"]["vacationUsed"]>
+export type VacationUsedOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "employeeId" | "startDate" | "endDate", ExtArgs["result"]["vacationUsed"]>
 export type VacationUsedInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
 }
@@ -579,10 +461,8 @@ export type $VacationUsedPayload<ExtArgs extends runtime.Types.Extensions.Intern
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     employeeId: string
-    countDay: number
     startDate: Date
     endDate: Date
-    createdDate: Date
   }, ExtArgs["result"]["vacationUsed"]>
   composites: {}
 }
@@ -1009,10 +889,8 @@ export interface Prisma__VacationUsedClient<T, Null = never, ExtArgs extends run
 export interface VacationUsedFieldRefs {
   readonly id: Prisma.FieldRef<"VacationUsed", 'String'>
   readonly employeeId: Prisma.FieldRef<"VacationUsed", 'String'>
-  readonly countDay: Prisma.FieldRef<"VacationUsed", 'Int'>
   readonly startDate: Prisma.FieldRef<"VacationUsed", 'DateTime'>
   readonly endDate: Prisma.FieldRef<"VacationUsed", 'DateTime'>
-  readonly createdDate: Prisma.FieldRef<"VacationUsed", 'DateTime'>
 }
     
 

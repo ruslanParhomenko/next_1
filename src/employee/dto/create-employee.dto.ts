@@ -8,9 +8,22 @@ import {
   IsOptional,
   IsPositive,
   IsString,
+  ValidateNested,
+  IsArray,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 import { Role } from '../../generated/prisma/client.js';
+
+class VacationDto {
+  @Type(() => Date)
+  @IsDate()
+  startDate: Date;
+
+  @Type(() => Date)
+  @IsDate()
+  endDate: Date;
+}
+
 export class CreateEmployeeDto {
   @IsEmail()
   mail: string;
@@ -30,6 +43,7 @@ export class CreateEmployeeDto {
   @IsBoolean()
   isActive?: boolean;
 
+  @Type(() => Number)
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsPositive()
   currentRate: number;
@@ -42,4 +56,10 @@ export class CreateEmployeeDto {
   @Type(() => Date)
   @IsDate()
   dismissalDate?: Date;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => VacationDto)
+  vacation?: VacationDto[];
 }

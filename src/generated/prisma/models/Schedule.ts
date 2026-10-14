@@ -352,6 +352,14 @@ export type ScheduleNullableScalarRelationFilter = {
   isNot?: Prisma.ScheduleWhereInput | null
 }
 
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type ScheduleCreateNestedOneWithoutEmployeesInput = {
   create?: Prisma.XOR<Prisma.ScheduleCreateWithoutEmployeesInput, Prisma.ScheduleUncheckedCreateWithoutEmployeesInput>
   connectOrCreate?: Prisma.ScheduleCreateOrConnectWithoutEmployeesInput

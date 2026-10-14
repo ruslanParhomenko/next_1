@@ -46,14 +46,12 @@ model Employee {
 model VacationUsed {
   id String @id @default(cuid())
 
-  employeeId String   @map("employee_id")
-  countDay   Int      @map("count_day")
-  startDate  DateTime @map("start_date")
-  endDate    DateTime @map("end_date")
+  employeeId String @map("employee_id")
+
+  startDate DateTime @map("start_date")
+  endDate   DateTime @map("end_date")
 
   employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
-
-  createdDate DateTime @map("created_date")
 
   @@index([employeeId, startDate])
   @@map("vacation_used")
