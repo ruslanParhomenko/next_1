@@ -881,7 +881,11 @@ export const EmployeeShiftScalarFieldEnum = {
   year: 'year',
   month: 'month',
   employeeId: 'employeeId',
-  shift: 'shift'
+  shift: 'shift',
+  rate: 'rate',
+  dayHours: 'dayHours',
+  nightHours: 'nightHours',
+  salary: 'salary'
 } as const
 
 export type EmployeeShiftScalarFieldEnum = (typeof EmployeeShiftScalarFieldEnum)[keyof typeof EmployeeShiftScalarFieldEnum]

@@ -29,11 +29,19 @@ export type AggregateEmployeeShift = {
 export type EmployeeShiftAvgAggregateOutputType = {
   year: number | null
   month: number | null
+  rate: number | null
+  dayHours: number | null
+  nightHours: number | null
+  salary: number | null
 }
 
 export type EmployeeShiftSumAggregateOutputType = {
   year: number | null
   month: number | null
+  rate: number | null
+  dayHours: number | null
+  nightHours: number | null
+  salary: number | null
 }
 
 export type EmployeeShiftMinAggregateOutputType = {
@@ -41,6 +49,10 @@ export type EmployeeShiftMinAggregateOutputType = {
   year: number | null
   month: number | null
   employeeId: string | null
+  rate: number | null
+  dayHours: number | null
+  nightHours: number | null
+  salary: number | null
 }
 
 export type EmployeeShiftMaxAggregateOutputType = {
@@ -48,6 +60,10 @@ export type EmployeeShiftMaxAggregateOutputType = {
   year: number | null
   month: number | null
   employeeId: string | null
+  rate: number | null
+  dayHours: number | null
+  nightHours: number | null
+  salary: number | null
 }
 
 export type EmployeeShiftCountAggregateOutputType = {
@@ -56,6 +72,10 @@ export type EmployeeShiftCountAggregateOutputType = {
   month: number
   employeeId: number
   shift: number
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   _all: number
 }
 
@@ -63,11 +83,19 @@ export type EmployeeShiftCountAggregateOutputType = {
 export type EmployeeShiftAvgAggregateInputType = {
   year?: true
   month?: true
+  rate?: true
+  dayHours?: true
+  nightHours?: true
+  salary?: true
 }
 
 export type EmployeeShiftSumAggregateInputType = {
   year?: true
   month?: true
+  rate?: true
+  dayHours?: true
+  nightHours?: true
+  salary?: true
 }
 
 export type EmployeeShiftMinAggregateInputType = {
@@ -75,6 +103,10 @@ export type EmployeeShiftMinAggregateInputType = {
   year?: true
   month?: true
   employeeId?: true
+  rate?: true
+  dayHours?: true
+  nightHours?: true
+  salary?: true
 }
 
 export type EmployeeShiftMaxAggregateInputType = {
@@ -82,6 +114,10 @@ export type EmployeeShiftMaxAggregateInputType = {
   year?: true
   month?: true
   employeeId?: true
+  rate?: true
+  dayHours?: true
+  nightHours?: true
+  salary?: true
 }
 
 export type EmployeeShiftCountAggregateInputType = {
@@ -90,6 +126,10 @@ export type EmployeeShiftCountAggregateInputType = {
   month?: true
   employeeId?: true
   shift?: true
+  rate?: true
+  dayHours?: true
+  nightHours?: true
+  salary?: true
   _all?: true
 }
 
@@ -185,6 +225,10 @@ export type EmployeeShiftGroupByOutputType = {
   month: number
   employeeId: string
   shift: string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   _count: EmployeeShiftCountAggregateOutputType | null
   _avg: EmployeeShiftAvgAggregateOutputType | null
   _sum: EmployeeShiftSumAggregateOutputType | null
@@ -216,6 +260,10 @@ export type EmployeeShiftWhereInput = {
   month?: Prisma.IntFilter<"EmployeeShift"> | number
   employeeId?: Prisma.StringFilter<"EmployeeShift"> | string
   shift?: Prisma.StringNullableListFilter<"EmployeeShift">
+  rate?: Prisma.IntFilter<"EmployeeShift"> | number
+  dayHours?: Prisma.IntFilter<"EmployeeShift"> | number
+  nightHours?: Prisma.IntFilter<"EmployeeShift"> | number
+  salary?: Prisma.IntFilter<"EmployeeShift"> | number
   employee?: Prisma.XOR<Prisma.EmployeeScalarRelationFilter, Prisma.EmployeeWhereInput>
   scheduleEmployees?: Prisma.ScheduleEmployeeListRelationFilter
 }
@@ -226,6 +274,10 @@ export type EmployeeShiftOrderByWithRelationInput = {
   month?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   shift?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
   employee?: Prisma.EmployeeOrderByWithRelationInput
   scheduleEmployees?: Prisma.ScheduleEmployeeOrderByRelationAggregateInput
 }
@@ -240,6 +292,10 @@ export type EmployeeShiftWhereUniqueInput = Prisma.AtLeast<{
   month?: Prisma.IntFilter<"EmployeeShift"> | number
   employeeId?: Prisma.StringFilter<"EmployeeShift"> | string
   shift?: Prisma.StringNullableListFilter<"EmployeeShift">
+  rate?: Prisma.IntFilter<"EmployeeShift"> | number
+  dayHours?: Prisma.IntFilter<"EmployeeShift"> | number
+  nightHours?: Prisma.IntFilter<"EmployeeShift"> | number
+  salary?: Prisma.IntFilter<"EmployeeShift"> | number
   employee?: Prisma.XOR<Prisma.EmployeeScalarRelationFilter, Prisma.EmployeeWhereInput>
   scheduleEmployees?: Prisma.ScheduleEmployeeListRelationFilter
 }, "id" | "employeeId_year_month">
@@ -250,6 +306,10 @@ export type EmployeeShiftOrderByWithAggregationInput = {
   month?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   shift?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
   _count?: Prisma.EmployeeShiftCountOrderByAggregateInput
   _avg?: Prisma.EmployeeShiftAvgOrderByAggregateInput
   _max?: Prisma.EmployeeShiftMaxOrderByAggregateInput
@@ -266,6 +326,10 @@ export type EmployeeShiftScalarWhereWithAggregatesInput = {
   month?: Prisma.IntWithAggregatesFilter<"EmployeeShift"> | number
   employeeId?: Prisma.StringWithAggregatesFilter<"EmployeeShift"> | string
   shift?: Prisma.StringNullableListFilter<"EmployeeShift">
+  rate?: Prisma.IntWithAggregatesFilter<"EmployeeShift"> | number
+  dayHours?: Prisma.IntWithAggregatesFilter<"EmployeeShift"> | number
+  nightHours?: Prisma.IntWithAggregatesFilter<"EmployeeShift"> | number
+  salary?: Prisma.IntWithAggregatesFilter<"EmployeeShift"> | number
 }
 
 export type EmployeeShiftCreateInput = {
@@ -273,6 +337,10 @@ export type EmployeeShiftCreateInput = {
   year: number
   month: number
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   employee: Prisma.EmployeeCreateNestedOneWithoutEmployeeShiftsInput
   scheduleEmployees?: Prisma.ScheduleEmployeeCreateNestedManyWithoutEmployeeShiftInput
 }
@@ -283,6 +351,10 @@ export type EmployeeShiftUncheckedCreateInput = {
   month: number
   employeeId: string
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   scheduleEmployees?: Prisma.ScheduleEmployeeUncheckedCreateNestedManyWithoutEmployeeShiftInput
 }
 
@@ -291,6 +363,10 @@ export type EmployeeShiftUpdateInput = {
   year?: Prisma.IntFieldUpdateOperationsInput | number
   month?: Prisma.IntFieldUpdateOperationsInput | number
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
   employee?: Prisma.EmployeeUpdateOneRequiredWithoutEmployeeShiftsNestedInput
   scheduleEmployees?: Prisma.ScheduleEmployeeUpdateManyWithoutEmployeeShiftNestedInput
 }
@@ -301,6 +377,10 @@ export type EmployeeShiftUncheckedUpdateInput = {
   month?: Prisma.IntFieldUpdateOperationsInput | number
   employeeId?: Prisma.StringFieldUpdateOperationsInput | string
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
   scheduleEmployees?: Prisma.ScheduleEmployeeUncheckedUpdateManyWithoutEmployeeShiftNestedInput
 }
 
@@ -310,6 +390,10 @@ export type EmployeeShiftCreateManyInput = {
   month: number
   employeeId: string
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
 }
 
 export type EmployeeShiftUpdateManyMutationInput = {
@@ -317,6 +401,10 @@ export type EmployeeShiftUpdateManyMutationInput = {
   year?: Prisma.IntFieldUpdateOperationsInput | number
   month?: Prisma.IntFieldUpdateOperationsInput | number
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type EmployeeShiftUncheckedUpdateManyInput = {
@@ -325,6 +413,10 @@ export type EmployeeShiftUncheckedUpdateManyInput = {
   month?: Prisma.IntFieldUpdateOperationsInput | number
   employeeId?: Prisma.StringFieldUpdateOperationsInput | string
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type EmployeeShiftListRelationFilter = {
@@ -362,11 +454,19 @@ export type EmployeeShiftCountOrderByAggregateInput = {
   month?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
   shift?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
 }
 
 export type EmployeeShiftAvgOrderByAggregateInput = {
   year?: Prisma.SortOrder
   month?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
 }
 
 export type EmployeeShiftMaxOrderByAggregateInput = {
@@ -374,6 +474,10 @@ export type EmployeeShiftMaxOrderByAggregateInput = {
   year?: Prisma.SortOrder
   month?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
 }
 
 export type EmployeeShiftMinOrderByAggregateInput = {
@@ -381,11 +485,19 @@ export type EmployeeShiftMinOrderByAggregateInput = {
   year?: Prisma.SortOrder
   month?: Prisma.SortOrder
   employeeId?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
 }
 
 export type EmployeeShiftSumOrderByAggregateInput = {
   year?: Prisma.SortOrder
   month?: Prisma.SortOrder
+  rate?: Prisma.SortOrder
+  dayHours?: Prisma.SortOrder
+  nightHours?: Prisma.SortOrder
+  salary?: Prisma.SortOrder
 }
 
 export type EmployeeShiftCreateNestedManyWithoutEmployeeInput = {
@@ -458,6 +570,10 @@ export type EmployeeShiftCreateWithoutEmployeeInput = {
   year: number
   month: number
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   scheduleEmployees?: Prisma.ScheduleEmployeeCreateNestedManyWithoutEmployeeShiftInput
 }
 
@@ -466,6 +582,10 @@ export type EmployeeShiftUncheckedCreateWithoutEmployeeInput = {
   year: number
   month: number
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   scheduleEmployees?: Prisma.ScheduleEmployeeUncheckedCreateNestedManyWithoutEmployeeShiftInput
 }
 
@@ -504,6 +624,10 @@ export type EmployeeShiftScalarWhereInput = {
   month?: Prisma.IntFilter<"EmployeeShift"> | number
   employeeId?: Prisma.StringFilter<"EmployeeShift"> | string
   shift?: Prisma.StringNullableListFilter<"EmployeeShift">
+  rate?: Prisma.IntFilter<"EmployeeShift"> | number
+  dayHours?: Prisma.IntFilter<"EmployeeShift"> | number
+  nightHours?: Prisma.IntFilter<"EmployeeShift"> | number
+  salary?: Prisma.IntFilter<"EmployeeShift"> | number
 }
 
 export type EmployeeShiftCreateWithoutScheduleEmployeesInput = {
@@ -511,6 +635,10 @@ export type EmployeeShiftCreateWithoutScheduleEmployeesInput = {
   year: number
   month: number
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
   employee: Prisma.EmployeeCreateNestedOneWithoutEmployeeShiftsInput
 }
 
@@ -520,6 +648,10 @@ export type EmployeeShiftUncheckedCreateWithoutScheduleEmployeesInput = {
   month: number
   employeeId: string
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
 }
 
 export type EmployeeShiftCreateOrConnectWithoutScheduleEmployeesInput = {
@@ -543,6 +675,10 @@ export type EmployeeShiftUpdateWithoutScheduleEmployeesInput = {
   year?: Prisma.IntFieldUpdateOperationsInput | number
   month?: Prisma.IntFieldUpdateOperationsInput | number
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
   employee?: Prisma.EmployeeUpdateOneRequiredWithoutEmployeeShiftsNestedInput
 }
 
@@ -552,6 +688,10 @@ export type EmployeeShiftUncheckedUpdateWithoutScheduleEmployeesInput = {
   month?: Prisma.IntFieldUpdateOperationsInput | number
   employeeId?: Prisma.StringFieldUpdateOperationsInput | string
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type EmployeeShiftCreateManyEmployeeInput = {
@@ -559,6 +699,10 @@ export type EmployeeShiftCreateManyEmployeeInput = {
   year: number
   month: number
   shift?: Prisma.EmployeeShiftCreateshiftInput | string[]
+  rate: number
+  dayHours: number
+  nightHours: number
+  salary: number
 }
 
 export type EmployeeShiftUpdateWithoutEmployeeInput = {
@@ -566,6 +710,10 @@ export type EmployeeShiftUpdateWithoutEmployeeInput = {
   year?: Prisma.IntFieldUpdateOperationsInput | number
   month?: Prisma.IntFieldUpdateOperationsInput | number
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
   scheduleEmployees?: Prisma.ScheduleEmployeeUpdateManyWithoutEmployeeShiftNestedInput
 }
 
@@ -574,6 +722,10 @@ export type EmployeeShiftUncheckedUpdateWithoutEmployeeInput = {
   year?: Prisma.IntFieldUpdateOperationsInput | number
   month?: Prisma.IntFieldUpdateOperationsInput | number
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
   scheduleEmployees?: Prisma.ScheduleEmployeeUncheckedUpdateManyWithoutEmployeeShiftNestedInput
 }
 
@@ -582,6 +734,10 @@ export type EmployeeShiftUncheckedUpdateManyWithoutEmployeeInput = {
   year?: Prisma.IntFieldUpdateOperationsInput | number
   month?: Prisma.IntFieldUpdateOperationsInput | number
   shift?: Prisma.EmployeeShiftUpdateshiftInput | string[]
+  rate?: Prisma.IntFieldUpdateOperationsInput | number
+  dayHours?: Prisma.IntFieldUpdateOperationsInput | number
+  nightHours?: Prisma.IntFieldUpdateOperationsInput | number
+  salary?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -621,6 +777,10 @@ export type EmployeeShiftSelect<ExtArgs extends runtime.Types.Extensions.Interna
   month?: boolean
   employeeId?: boolean
   shift?: boolean
+  rate?: boolean
+  dayHours?: boolean
+  nightHours?: boolean
+  salary?: boolean
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
   scheduleEmployees?: boolean | Prisma.EmployeeShift$scheduleEmployeesArgs<ExtArgs>
   _count?: boolean | Prisma.EmployeeShiftCountOutputTypeDefaultArgs<ExtArgs>
@@ -632,6 +792,10 @@ export type EmployeeShiftSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   month?: boolean
   employeeId?: boolean
   shift?: boolean
+  rate?: boolean
+  dayHours?: boolean
+  nightHours?: boolean
+  salary?: boolean
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["employeeShift"]>
 
@@ -641,6 +805,10 @@ export type EmployeeShiftSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   month?: boolean
   employeeId?: boolean
   shift?: boolean
+  rate?: boolean
+  dayHours?: boolean
+  nightHours?: boolean
+  salary?: boolean
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["employeeShift"]>
 
@@ -650,9 +818,13 @@ export type EmployeeShiftSelectScalar = {
   month?: boolean
   employeeId?: boolean
   shift?: boolean
+  rate?: boolean
+  dayHours?: boolean
+  nightHours?: boolean
+  salary?: boolean
 }
 
-export type EmployeeShiftOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "year" | "month" | "employeeId" | "shift", ExtArgs["result"]["employeeShift"]>
+export type EmployeeShiftOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "year" | "month" | "employeeId" | "shift" | "rate" | "dayHours" | "nightHours" | "salary", ExtArgs["result"]["employeeShift"]>
 export type EmployeeShiftInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   employee?: boolean | Prisma.EmployeeDefaultArgs<ExtArgs>
   scheduleEmployees?: boolean | Prisma.EmployeeShift$scheduleEmployeesArgs<ExtArgs>
@@ -677,6 +849,10 @@ export type $EmployeeShiftPayload<ExtArgs extends runtime.Types.Extensions.Inter
     month: number
     employeeId: string
     shift: string[]
+    rate: number
+    dayHours: number
+    nightHours: number
+    salary: number
   }, ExtArgs["result"]["employeeShift"]>
   composites: {}
 }
@@ -1107,6 +1283,10 @@ export interface EmployeeShiftFieldRefs {
   readonly month: Prisma.FieldRef<"EmployeeShift", 'Int'>
   readonly employeeId: Prisma.FieldRef<"EmployeeShift", 'String'>
   readonly shift: Prisma.FieldRef<"EmployeeShift", 'String[]'>
+  readonly rate: Prisma.FieldRef<"EmployeeShift", 'Int'>
+  readonly dayHours: Prisma.FieldRef<"EmployeeShift", 'Int'>
+  readonly nightHours: Prisma.FieldRef<"EmployeeShift", 'Int'>
+  readonly salary: Prisma.FieldRef<"EmployeeShift", 'Int'>
 }
     
 
