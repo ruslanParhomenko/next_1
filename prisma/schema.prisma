@@ -20,6 +20,7 @@ enum Role {
   TECH
   DLR
   MGR
+  BAR
 }
 
 model Employee {
