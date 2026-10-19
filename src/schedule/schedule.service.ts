@@ -36,10 +36,14 @@ export class ScheduleService {
     if (!schedule) return null;
 
     return {
-      ...schedule,
-      employees: schedule.employees.map(({ employeeShift }) => ({
+      id: schedule.id,
+      unit,
+      year,
+      month,
+      rowShifts: schedule.employees.map(({ employeeShift }) => ({
         ...employeeShift.employee,
-        shift: employeeShift.shift,
+        employee: employeeShift.employee.fullName,
+        shifts: employeeShift.shift,
         rate: employeeShift.rate,
         dayHours: employeeShift.dayHours,
         nightHours: employeeShift.nightHours,
