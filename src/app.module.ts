@@ -5,9 +5,11 @@ import { EmployeeModule } from './employee/employee.module.js';
 import { PrismaModule } from './prisma/prisma.module.js';
 import { LoggerMiddleware } from './common/middleware/loger/logger.middleware.js';
 import { ConfigModule } from '@nestjs/config';
+import { HealthModule } from './health/health.module.js';
 
 @Module({
   imports: [
+    HealthModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
       isGlobal: true,
@@ -16,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     ScheduleModule,
     EmployeeModule,
     PrismaModule,
+    HealthModule,
   ],
   controllers: [],
   providers: [],
