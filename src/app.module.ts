@@ -6,6 +6,8 @@ import { PrismaModule } from './prisma/prisma.module.js';
 import { LoggerMiddleware } from './common/middleware/loger/logger.middleware.js';
 import { ConfigModule } from '@nestjs/config';
 import { HealthModule } from './health/health.module.js';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './common/guard/jwt-auth.guard.js';
 
 @Module({
   imports: [
@@ -21,7 +23,12 @@ import { HealthModule } from './health/health.module.js';
     HealthModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
